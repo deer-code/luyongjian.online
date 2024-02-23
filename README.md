@@ -1,4 +1,4 @@
-# 陆永剑的出海日志
+# 陆永剑的出海站点
 
 独立开发者网址导航
 
@@ -16,7 +16,7 @@
 
 使用 Astro 构建
 
-网站地址：[陆永剑的出海日志](https://luyongjian.online)
+网站地址：[陆永剑的出海站点](https://luyongjian.online)
 
 <!-- 公众号：
 ![](http://github.com/用户名/仓库名/raw/master/路径(如果是根目录,可省略)/xxx.png) -->

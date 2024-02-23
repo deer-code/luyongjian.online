@@ -1,0 +1,93 @@
+---
+const title = "信息媒体";
+
+// const { items } = Astro.props;
+const items = [
+  {
+    currentTitle: "GitHub Trending",
+    currentDesc: "技术趋势统计",
+    currentHref: "https://github.com/trending",
+    currentImage: "./image/github.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "howtogeek",
+    currentDesc: "科技媒体",
+    currentHref: "https://www.howtogeek.com/",
+    currentImage: "./image/howtogeek.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "unite",
+    currentDesc: "unite ai",
+    currentHref: "https://www.unite.ai/",
+    currentImage: "./image/unite.ico",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "the-decoder",
+    currentDesc: "科技媒体",
+    currentHref: "https://the-decoder.com/",
+    currentImage: "./image/the-decoder.svg",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "marktechpost",
+    currentDesc: "科技媒体",
+    currentHref: "https://www.marktechpost.com/",
+    currentImage: "./image/marktechpost.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "toolify",
+    currentDesc: "AI导航",
+    currentHref: "https://www.toolify.ai/zh/",
+    currentImage: "./image/toolify.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "crazygames",
+    currentDesc: "游戏平台",
+    currentHref: "https://www.crazygames.com/",
+    currentImage: "./image/crazygames.png",
+    currentSvg: false,
+  },
+];
+---
+
+<h2 class="mt-4 mb-4 color-gray-800 font-bold">{title}</h2>
+<div class="grid grid-cols-4 gap-2">
+  {
+    items.map((item) => (
+      <a
+        href={item.currentHref}
+        target="_blank"
+        rel="nofollow"
+        onclick="itemClick()"
+      >
+        <div class="flex items-center gap-4 p-4 bg-white rounded-md">
+          {item.currentSvg && (
+            <svg
+              class="w-8 h-8"
+              viewBox="0 0 16 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d={item.currentSvgPath1} fill={item.currentSvgFill1} />
+              <path d={item.currentSvgPath2} fill={item.currentSvgFill2} />
+            </svg>
+          )}
+          {!item.currentSvg && <img class="w-8 h-8" src={item.currentImage} />}
+          <div class="flex flex-col">
+            <strong class="text-slate-900 text-sm font-medium dark:text-slate-200">
+              {item.currentTitle}
+            </strong>
+            <span class="text-slate-500 text-xs font-medium dark:text-slate-400">
+              {item.currentDesc}
+            </span>
+          </div>
+        </div>
+      </a>
+    ))
+  }
+</div>

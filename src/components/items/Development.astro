@@ -1,0 +1,99 @@
+---
+const title = "网站开发";
+
+// const { items } = Astro.props;
+const items = [
+  {
+    currentTitle: "GitHub",
+    currentDesc: "开源软件托管平台",
+    currentHref: "https://github.com/",
+    currentImage: "./image/github.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "vercel",
+    currentDesc: "代码模版",
+    currentHref: "https://vercel.com/templates",
+    currentImage: "./image/vercel.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "v0",
+    currentDesc: "克隆页面",
+    currentHref: "https://v0.dev/",
+    currentImage: "",
+    currentSvg: true,
+    currentSvgPath1:
+      "M23.3919 0H32.9188C36.7819 0 39.9136 3.13165 39.9136 6.99475V16.0805H36.0006V6.99475C36.0006 6.90167 35.9969 6.80925 35.9898 6.71766L26.4628 16.079C26.4949 16.08 26.5272 16.0805 26.5595 16.0805H36.0006V19.7762H26.5595C22.6964 19.7762 19.4788 16.6139 19.4788 12.7508V3.68923H23.3919V12.7508C23.3919 12.9253 23.4054 13.0977 23.4316 13.2668L33.1682 3.6995C33.0861 3.6927 33.003 3.68923 32.9188 3.68923H23.3919V0Z",
+    currentSvgPath2:
+      "M13.7688 19.0956L0 3.68759H5.53933L13.6231 12.7337V3.68759H17.7535V17.5746C17.7535 19.6705 15.1654 20.6584 13.7688 19.0956Z",
+    currentSvgFill1: "#171717",
+    currentSvgFill2: "#171717",
+  },
+  {
+    currentTitle: "replicate",
+    currentDesc: "开源机器学习模型",
+    currentHref: "https://replicate.com/explore",
+    currentImage: "./image/replicate.svg",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "tailwind",
+    currentDesc: "快速构建美观的网站",
+    currentHref: "https://www.tailwindcss.cn/",
+    currentImage: "./image/tailwind.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "文心一言",
+    currentDesc: "大语言模型",
+    currentHref: "https://yiyan.baidu.com/",
+    currentImage: "./image/yiyan.ico",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "ChatGPT",
+    currentDesc: "大语言模型",
+    currentHref: "https://chat.openai.com/",
+    currentImage: "./image/chatgpt.png",
+    currentSvg: false,
+  },
+];
+---
+
+<h2 class="mt-4 mb-4 color-gray-800 font-bold">{title}</h2>
+<div class="grid grid-cols-4 gap-2">
+  {
+    items.map((item) => (
+      <a
+        href={item.currentHref}
+        target="_blank"
+        rel="nofollow"
+        onclick="itemClick()"
+      >
+        <div class="flex items-center gap-4 p-4 bg-white rounded-md">
+          {item.currentSvg && (
+            <svg
+              class="w-8 h-8"
+              viewBox="0 0 16 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d={item.currentSvgPath1} fill={item.currentSvgFill1} />
+              <path d={item.currentSvgPath2} fill={item.currentSvgFill2} />
+            </svg>
+          )}
+          {!item.currentSvg && <img class="w-8 h-8" src={item.currentImage} />}
+          <div class="flex flex-col">
+            <strong class="text-slate-900 text-sm font-medium dark:text-slate-200">
+              {item.currentTitle}
+            </strong>
+            <span class="text-slate-500 text-xs font-medium dark:text-slate-400">
+              {item.currentDesc}
+            </span>
+          </div>
+        </div>
+      </a>
+    ))
+  }
+</div>

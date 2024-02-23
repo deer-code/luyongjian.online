@@ -1,0 +1,98 @@
+---
+const title = "网站部署";
+
+// const { items } = Astro.props;
+const items = [
+  {
+    currentTitle: "hostinger",
+    currentDesc: "域名购买",
+    currentHref: "https://www.hostinger.com.hk/",
+    currentImage: "./image/hostinger.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "阿里云",
+    currentDesc: "云服务器供应商",
+    currentHref: "https://www.aliyun.com/",
+    currentImage: "./image/aliyun.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "cloudflare",
+    currentDesc: "云服务器供应商",
+    currentHref: "https://www.cloudflare.com/zh-cn/",
+    currentImage: "./image/cloudflare.ico",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "GitHub Pages",
+    currentDesc: "静态页面部署",
+    currentHref: "https://pages.github.com/",
+    currentImage: "./image/github.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "vercel",
+    currentDesc: "页面部署",
+    currentHref: "https://vercel.com/templates",
+    currentImage: "./image/vercel.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "sitemap",
+    currentDesc: "sitemap生成",
+    currentHref: "https://sitemap.zhetao.com/",
+    currentImage: "./image/sitemap.png",
+    currentSvg: false,
+  },{
+    currentTitle: "百度统计",
+    currentDesc: "网站数据统计",
+    currentHref: "https://tongji.baidu.com/",
+    currentImage: "./image/baidutongji.png",
+    currentSvg: false,
+  },{
+    currentTitle: "Google Analytics",
+    currentDesc: "网站数据统计",
+    currentHref: "https://analytics.google.com/",
+    currentImage: "./image/google_analytics.png",
+    currentSvg: false,
+  },
+];
+---
+
+<h2 class="mt-4 mb-4 color-gray-800 font-bold">{title}</h2>
+<div class="grid grid-cols-4 gap-2">
+  {
+    items.map((item) => (
+      <a
+        href={item.currentHref}
+        target="_blank"
+        rel="nofollow"
+        onclick="itemClick()"
+      >
+        <div class="flex items-center gap-4 p-4 bg-white rounded-md">
+          {item.currentSvg && (
+            <svg
+              class="w-8 h-8"
+              viewBox="0 0 16 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d={item.currentSvgPath1} fill={item.currentSvgFill1} />
+              <path d={item.currentSvgPath2} fill={item.currentSvgFill2} />
+            </svg>
+          )}
+          {!item.currentSvg && <img class="w-8 h-8" src={item.currentImage} />}
+          <div class="flex flex-col">
+            <strong class="text-slate-900 text-sm font-medium dark:text-slate-200">
+              {item.currentTitle}
+            </strong>
+            <span class="text-slate-500 text-xs font-medium dark:text-slate-400">
+              {item.currentDesc}
+            </span>
+          </div>
+        </div>
+      </a>
+    ))
+  }
+</div>

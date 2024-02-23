@@ -1,0 +1,86 @@
+---
+const title = "产品推广";
+
+// const { items } = Astro.props;
+const items = [
+  {
+    currentTitle: "V2EX",
+    currentDesc: "创意工作者的社区",
+    currentHref: "http://www.v2ex.com/",
+    currentImage: "./image/v2ex.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "w2solo",
+    currentDesc: "连接每一个独立开发者",
+    currentHref: "https://w2solo.com/",
+    currentImage: "./image/w2solo.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "科技爱好者周刊",
+    currentDesc: "连接每一个独立开发者",
+    currentHref: "https://github.com/ruanyf/weekly/issues",
+    currentImage: "./image/github.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "小众软件",
+    currentDesc: "开发者媒体",
+    currentHref: "https://meta.appinn.net/",
+    currentImage: "./image/xiaozhongruanjian.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "Product Hunt",
+    currentDesc: "产品分享聚集地",
+    currentHref: "https://www.producthunt.com/",
+    currentImage: "./image/ph.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "indiehackers",
+    currentDesc: "独立开发者社区",
+    currentHref: "https://www.indiehackers.com/",
+    currentImage: "./image/ih.png",
+    currentSvg: false,
+  }
+];
+---
+
+<h2 class="mt-4 mb-4 color-gray-800 font-bold">{title}</h2>
+<div class="grid grid-cols-4 gap-2">
+  {
+    items.map((item) => (
+      <a
+        href={item.currentHref}
+        target="_blank"
+        rel="nofollow"
+        onclick="itemClick()"
+      >
+        <div class="flex items-center gap-4 p-4 bg-white rounded-md">
+          {item.currentSvg && (
+            <svg
+              class="w-8 h-8"
+              viewBox="0 0 16 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d={item.currentSvgPath1} fill={item.currentSvgFill1} />
+              <path d={item.currentSvgPath2} fill={item.currentSvgFill2} />
+            </svg>
+          )}
+          {!item.currentSvg && <img class="w-8 h-8" src={item.currentImage} />}
+          <div class="flex flex-col">
+            <strong class="text-slate-900 text-sm font-medium dark:text-slate-200">
+              {item.currentTitle}
+            </strong>
+            <span class="text-slate-500 text-xs font-medium dark:text-slate-400">
+              {item.currentDesc}
+            </span>
+          </div>
+        </div>
+      </a>
+    ))
+  }
+</div>

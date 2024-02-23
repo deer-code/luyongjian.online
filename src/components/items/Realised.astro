@@ -1,0 +1,79 @@
+---
+const title = "变现方式";
+
+// const { items } = Astro.props;
+const items = [
+  {
+    currentTitle: "Buy Me a Coffee",
+    currentDesc: "捐赠工具",
+    currentHref: "https://www.buymeacoffee.com/",
+    currentImage: "./image/coffee.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "爱发电",
+    currentDesc: "捐赠工具",
+    currentHref: "https://afdian.net/",
+    currentImage: "./image/aifadian.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "adsense",
+    currentDesc: "开发者广告",
+    currentHref: "https://support.google.com/adsense#topic=3373519",
+    currentImage: "./image/adsense.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "万维广告",
+    currentDesc: "开发者广告",
+    currentHref: "https://wwads.cn/",
+    currentImage: "./image/wwads.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "payoneer",
+    currentDesc: "海外支付工具",
+    currentHref: "https://www.payoneer.com/",
+    currentImage: "./image/payoneer.png",
+    currentSvg: false,
+  }
+];
+---
+
+<h2 class="mt-4 mb-4 color-gray-800 font-bold">{title}</h2>
+<div class="grid grid-cols-4 gap-2">
+  {
+    items.map((item) => (
+      <a
+        href={item.currentHref}
+        target="_blank"
+        rel="nofollow"
+        onclick="itemClick()"
+      >
+        <div class="flex items-center gap-4 p-4 bg-white rounded-md">
+          {item.currentSvg && (
+            <svg
+              class="w-8 h-8"
+              viewBox="0 0 16 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d={item.currentSvgPath1} fill={item.currentSvgFill1} />
+              <path d={item.currentSvgPath2} fill={item.currentSvgFill2} />
+            </svg>
+          )}
+          {!item.currentSvg && <img class="w-8 h-8" src={item.currentImage} />}
+          <div class="flex flex-col">
+            <strong class="text-slate-900 text-sm font-medium dark:text-slate-200">
+              {item.currentTitle}
+            </strong>
+            <span class="text-slate-500 text-xs font-medium dark:text-slate-400">
+              {item.currentDesc}
+            </span>
+          </div>
+        </div>
+      </a>
+    ))
+  }
+</div>

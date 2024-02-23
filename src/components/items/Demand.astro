@@ -1,0 +1,99 @@
+---
+const title = "需求分析";
+
+// const { items } = Astro.props;
+const items = [
+  {
+    currentTitle: "SimilarWeb",
+    currentDesc: "数据分析平台",
+    currentHref: "https://pro.similarweb.com/",
+    currentImage: "",
+    currentSvg: true,
+    currentSvgPath1:
+      "M14.6545 3.48039C13.7466 2.10536 12.4317 0.957458 10.9243 0.37374L10.4778 0.2272C9.91772 0.0660061 9.4095 -0.00237928 8.95556 6.30516e-05C7.32235 0.00739005 6 1.31892 6 2.93819C6 3.61228 6.22944 4.23263 6.6143 4.72598L6.42927 4.49152C6.51809 4.61852 6.6143 4.74552 6.72532 4.87252C7.19407 5.42449 7.86018 5.99599 8.72366 6.64565C10.8453 8.2405 12.222 9.65461 12.3355 11.4082C12.3626 11.6451 12.3799 11.8869 12.3799 12.1311C12.3799 13.0226 12.18 13.9653 11.8396 14.6296H11.842C11.842 14.6296 11.6965 14.8885 11.7878 14.9642C11.8346 15.0033 11.9358 15.0326 12.1134 14.9276C13.0558 14.3317 13.8774 13.5575 14.5213 12.6391C15.4613 11.2983 15.9744 9.71078 15.9991 8.07931C16.0237 6.44783 15.555 4.8481 14.6545 3.48039Z",
+    currentSvgPath2:
+      "M8.73153 9.28317L7.47008 8.2748C4.82783 6.40607 3.45405 4.39163 4.20764 1.90771C4.27551 1.68105 4.35977 1.46134 4.45572 1.24625V1.24394C4.45572 1.24394 4.64295 0.864642 4.23573 1.05198C3.35108 1.51453 2.56004 2.13898 1.90709 2.89064C0.772021 4.19274 0.105024 5.82787 0.0114102 7.54396C-0.0822035 9.26004 0.402247 10.9576 1.38987 12.373C1.79475 12.9235 2.28388 13.3976 2.8362 13.7838H2.83386C5.61887 15.7705 8.00836 14.7251 8.00836 14.7251H8.0107C9.17853 14.2557 9.99999 13.1247 9.99999 11.8018C10.0023 10.7726 9.50384 9.85905 8.73153 9.28317Z",
+    currentSvgFill1: "#FF7A1A",
+    currentSvgFill2: "#092540",
+  },
+  {
+    currentTitle: "ahrefs",
+    currentDesc: "免费的SEO工具",
+    currentHref: "https://ahrefs.com/zh/free-seo-tools",
+    currentImage: "./image/ahref.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "semrush",
+    currentDesc: "网站分析工具",
+    currentHref: "https://zh.semrush.com/projects/",
+    currentImage: "./image/semrush.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "谷歌关键字",
+    currentDesc: "关键字规划工具",
+    currentHref: "https://ads.google.com/intl/zh_SG/home/tools/keyword-planner/",
+    currentImage: "./image/google-ads.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "谷歌趋势",
+    currentDesc: "用户正在搜索的内容",
+    currentHref: "https://trends.google.com/trends/",
+    currentImage: "./image/google-trend.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "站长工具",
+    currentDesc: "SEO优化难度分析",
+    currentHref: "https://tool.chinaz.com/kwevaluate",
+    currentImage: "./image/zhanzhang.png",
+    currentSvg: false,
+  },
+  {
+    currentTitle: "爱站网",
+    currentDesc: "关键词竞争查询",
+    currentHref: "https://wordrank.aizhan.com/",
+    currentImage: "./image/aizhan.png",
+    currentSvg: false,
+  }
+];
+---
+
+<h2 class="mt-4 mb-4 color-gray-800 font-bold">{title}</h2>
+<div class="grid grid-cols-4 gap-2">
+  {
+    items.map((item) => (
+      <a
+        href={item.currentHref}
+        target="_blank"
+        rel="nofollow"
+        onclick="itemClick()"
+      >
+        <div class="flex items-center gap-4 p-4 bg-white rounded-md">
+          {item.currentSvg && (
+            <svg
+              class="w-8 h-8"
+              viewBox="0 0 16 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d={item.currentSvgPath1} fill={item.currentSvgFill1} />
+              <path d={item.currentSvgPath2} fill={item.currentSvgFill2} />
+            </svg>
+          )}
+          {!item.currentSvg && <img class="w-8 h-8" src={item.currentImage} />}
+          <div class="flex flex-col">
+            <strong class="text-slate-900 text-sm font-medium dark:text-slate-200">
+              {item.currentTitle}
+            </strong>
+            <span class="text-slate-500 text-xs font-medium dark:text-slate-400">
+              {item.currentDesc}
+            </span>
+          </div>
+        </div>
+      </a>
+    ))
+  }
+</div>

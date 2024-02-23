@@ -1,0 +1,62 @@
+---
+import BaseHead from "../components/Head.astro";
+import BaseLeft from "../components/Left.astro";
+import BaseFoot from "../components/Foot.astro";
+
+const { pageIndex } = Astro.props;
+
+---
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta itemprop="name" content="陆永剑的出海日志 - 首页" />
+    <meta
+      name="keywords"
+      itemprop="keywords"
+      content="独立开发者,技术出海,工具出海,技术出海导航,程序员导航"
+    />
+    <meta
+      name="description"
+      itemprop="description"
+      content="陆永剑的出海日志"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/image/logo.png"
+      rel="external nofollow"
+      type="image/png"
+    />
+  </head>
+
+  <body class="bg-slate-50">
+    <!--header-->
+    <BaseHead />
+
+    <!--container-->
+    <div class="container mx-auto mt-2">
+      <div class="flex items-start gap-4">
+        <BaseLeft pageIndex={pageIndex}/>
+
+        <div class="grow rounded-md">
+          <slot />
+
+          <BaseFoot />
+        </div>
+
+        <!-- <BaseRight /> -->
+      </div>
+    </div>
+
+    <script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"
+    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GTXJSR4LH5"
+    ></script>
+
+    <script>
+      import "../scripts/tongji.js";
+    </script>
+  </body>
+</html>

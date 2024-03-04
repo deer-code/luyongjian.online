@@ -2,9 +2,9 @@
 import BaseHead from "../components/Head.astro";
 import BaseLeft from "../components/Left.astro";
 import BaseFoot from "../components/Foot.astro";
+import Demand from "../components/items/Demand.astro";
 
 const { pageIndex } = Astro.props;
-
 ---
 
 <!doctype html>
@@ -36,23 +36,19 @@ const { pageIndex } = Astro.props;
     <BaseHead />
 
     <!--container-->
-    <div class="container mx-auto mt-2">
-      <div class="flex items-start gap-4">
-        <BaseLeft pageIndex={pageIndex}/>
-
-        <div class="grow rounded-md">
+    <div class="container mx-auto">
+      <div class="flex flex-wrap">
+        <BaseLeft pageIndex={pageIndex} />
+        <div class="w-full lg:w-5/6 md:w-3/4">
           <slot />
-
-          <BaseFoot />
         </div>
-
-        <!-- <BaseRight /> -->
       </div>
+      <!-- <BaseFoot /> -->
     </div>
 
     <script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"
     ></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GTXJSR4LH5"
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S4YP5VJ3Z3"
     ></script>
 
     <script>

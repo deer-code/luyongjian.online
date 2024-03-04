@@ -5,12 +5,15 @@ const title2 = "免责声明";
 const { pageIndex } = Astro.props;
 ---
 
-<div class="sticky top-16">
-  <div class="w-48 bg-white rounded-md">
+<div class="w-full lg:w-1/6 md:w-1/4">
+  <!-- 内容块 -->
+  <div class="bg-white p-2 rounded-md">
     <div class="flex flex-col">
       <!--实用工具开始-->
       <a href="./index.html">
-        <div class={`leftside px-6 py-3 flex justify-start ${pageIndex == 1 && `bg-sky-500/50`}  hover:bg-sky-500/50`}>
+        <div
+          class={`leftside px-6 py-3 flex justify-start ${pageIndex == 1 && `bg-sky-500/50`}  hover:bg-sky-500/50`}
+        >
           <svg
             class="w-6 h-6 icon"
             viewBox="0 0 1024 1024"
@@ -32,7 +35,9 @@ const { pageIndex } = Astro.props;
       <!--实用工具结束-->
       <!--免责声明开始-->
       <a href="./mianze.html">
-        <div class={`leftside px-6 py-3 flex justify-start ${pageIndex == 2 && `bg-sky-500/50`}  hover:bg-sky-500/50`}>
+        <div
+          class={`leftside px-6 py-3 flex justify-start ${pageIndex == 2 && `bg-sky-500/50`}  hover:bg-sky-500/50`}
+        >
           <svg
             class="w-6 h-6 icon"
             viewBox="0 0 1024 1024"
@@ -50,7 +55,25 @@ const { pageIndex } = Astro.props;
           <h2 class="ms-2 text-zinc-500">{title2}</h2>
         </div>
       </a>
-      <!--免责声明结束-->
     </div>
   </div>
+
+  <div class="mt-2"></div>
+  <h5 class="mt-2 mb-2 ms-2 color-gray-800 font-bold">我的课程</h5>
+  <div class="bg-white p-2 rounded-md">
+    <a target="_blank" href="https://edu.csdn.net/course/detail/39293?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522170954483616800211591268%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fcourse.%2522%257D&request_id=170954483616800211591268&biz_id=3&utm_medium=distribute.pc_search_result.none-task-course-2~course~first_rank_ecpm_v1~rank_v31_ecpm-1-39293-null-null.pc_edu_default&utm_term=AIGC%E6%97%B6%E4%BB%A3%2C%E7%A8%8B%E5%BA%8F%E5%91%98%E5%89%AF%E4%B8%9A%E5%BF%85%E4%BF%AE%E8%AF%BE&spm=1018.2226.3001.4453">
+      <div class="bg-white my-2">
+        <img src="../image/kecheng.png" />
+      </div>
+    </a>
+  </div>
+
+  <div class="mt-2"></div>
+  <h5 class="mt-2 mb-2 ms-2 color-gray-800 font-bold">公众号</h5>
+  <div class="bg-white p-2 rounded-md">
+    <div class="bg-white my-2">
+      <img src="../image/gzh.jpg" />
+    </div>
+  </div>
+
 </div>
